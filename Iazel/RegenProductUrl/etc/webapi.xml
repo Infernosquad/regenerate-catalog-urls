@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route method="POST" url="/V1/regenerate-product-url">
+        <service class="Iazel\RegenProductUrl\Api\RegenerateInterface" method="regenerateProductUrl"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route method="POST" url="/V1/regenerate-category-url">
+                <service class="Iazel\RegenProductUrl\Api\RegenerateInterface" method="regenerateCategoryUrl"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route method="POST" url="/V1/regenerate-category-path">
+        <service class="Iazel\RegenProductUrl\Api\RegenerateInterface" method="regenerateCategoryPath"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>
