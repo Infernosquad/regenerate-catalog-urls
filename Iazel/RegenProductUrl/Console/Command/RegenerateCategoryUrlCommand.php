@@ -1,20 +1,20 @@
 <?php
 namespace Iazel\RegenProductUrl\Console\Command;
 
+use Magento\Catalog\Model\ResourceModel\Category\Collection;
+use Magento\Catalog\Model\ResourceModel\Category\CollectionFactory as CategoryCollectionFactory;
+use Magento\CatalogUrlRewrite\Model\CategoryUrlRewriteGenerator;
 use Magento\Framework\App\Area;
+use Magento\Framework\App\State;
 use Magento\Store\Model\App\Emulation;
+use Magento\Store\Model\Store;
+use Magento\UrlRewrite\Model\UrlPersistInterface;
+use Magento\UrlRewrite\Service\V1\Data\UrlRewrite;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Magento\UrlRewrite\Service\V1\Data\UrlRewrite;
-use Magento\UrlRewrite\Model\UrlPersistInterface;
-use Magento\CatalogUrlRewrite\Model\CategoryUrlRewriteGenerator;
-use Magento\Catalog\Model\ResourceModel\Category\CollectionFactory as CategoryCollectionFactory;
-use Magento\Catalog\Model\ResourceModel\Category\Collection;
-use Magento\Store\Model\Store;
-use Magento\Framework\App\State;
 
 class RegenerateCategoryUrlCommand extends Command
 {
@@ -37,12 +37,12 @@ class RegenerateCategoryUrlCommand extends Command
      * @var \Magento\Framework\App\State
      */
     protected $state;
-    
+
     /**
      * @var CategoryCollectionFactory\Proxy
      */
     private $categoryCollectionFactory;
-    
+
     /**
      * @var Emulation\Proxy
      */
@@ -85,12 +85,12 @@ class RegenerateCategoryUrlCommand extends Command
                 'Categories to regenerate'
             )
             ->addOption(
-                'store', 's',
+                'store',
+                's',
                 InputOption::VALUE_REQUIRED,
                 'Use the specific Store View',
                 Store::DEFAULT_STORE_ID
-            )
-        ;
+            );
         return parent::configure();
     }
 
@@ -138,7 +138,7 @@ class RegenerateCategoryUrlCommand extends Command
         $this->emulation->stopEnvironmentEmulation();
         $out->writeln('Done regenerating. Regenerated ' . $regenerated . ' urls');
     }
-    
+
     /**
      * Remove entries with request_path='' to prevent error 404 for "http://site.com/" address.
      *

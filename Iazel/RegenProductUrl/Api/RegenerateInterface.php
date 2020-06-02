@@ -2,8 +2,6 @@
 
 namespace Iazel\RegenProductUrl\Api;
 
-use Iazel\RegenProductUrl\Model\RegenerateProductUrlInputInterface;
-
 interface RegenerateInterface
 {
     /**
@@ -15,12 +13,26 @@ interface RegenerateInterface
     public function regenerateProductUrl($store = null, $pids = []);
 
     /**
-     * @return string
+     * @param string|null $store
+     * @param string[]|null $cids
+     *
+     * @return int Regenerated category count
      */
-    public function regenerateCategoryUrl();
+    public function regenerateCategoryUrl($store = null, $cids = []);
 
     /**
-     * @return string
+     * @param string|null $store
+     * @param string[]|null $cids
+     *
+     * @return int Regenerated category count
      */
-    public function regenerateCategoryPath();
+    public function regenerateCategoryPath($store = null, $cids = []);
+
+    /**
+     * @param string|null $store
+     * @param string[]|null $pids
+     *
+     * @return int Regenerated category count
+     */
+    public function regenerateCmsUrl($store = null, $pids = []);
 }

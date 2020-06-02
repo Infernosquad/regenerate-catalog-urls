@@ -21,4 +21,11 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+
+    <route method="POST" url="/V1/regenerate-cms-url">
+        <service class="Iazel\RegenProductUrl\Api\RegenerateInterface" method="regenerateCmsUrl"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
 </routes>
