@@ -8,7 +8,7 @@ interface RegenerateInterface
      * @param string|null $store
      * @param string[]|null $pids
      *
-     * @return string
+     * @return int Regenerated product count
      */
     public function regenerateProductUrl($store = null, $pids = []);
 
@@ -32,7 +32,7 @@ interface RegenerateInterface
      * @param string|null $store
      * @param string[]|null $pids
      *
-     * @return int Regenerated category count
+     * @return int Regenerated pages count
      */
     public function regenerateCmsUrl($store = null, $pids = []);
 }
