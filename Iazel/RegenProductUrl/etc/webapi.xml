@@ -4,28 +4,28 @@
     <route method="POST" url="/V1/regenerate-product-url">
         <service class="Iazel\RegenProductUrl\Api\RegenerateInterface" method="regenerateProductUrl"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="Magento_Backend::admin"/>
         </resources>
     </route>
 
     <route method="POST" url="/V1/regenerate-category-url">
                 <service class="Iazel\RegenProductUrl\Api\RegenerateInterface" method="regenerateCategoryUrl"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="Magento_Backend::admin"/>
         </resources>
     </route>
 
     <route method="POST" url="/V1/regenerate-category-path">
         <service class="Iazel\RegenProductUrl\Api\RegenerateInterface" method="regenerateCategoryPath"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="Magento_Backend::admin"/>
         </resources>
     </route>
 
     <route method="POST" url="/V1/regenerate-cms-url">
         <service class="Iazel\RegenProductUrl\Api\RegenerateInterface" method="regenerateCmsUrl"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="Magento_Backend::admin"/>
         </resources>
     </route>
 </routes>
